@@ -32,7 +32,8 @@
 // #define IGNORE_MOD_TAP_INTERRUPT 
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define TAPPING_FORCE_HOLD
+// #define TAPPING_FORCE_HOLD - DEPRECATED https://github.com/qmk/qmk_firmware/pull/17007 or 20230226.md changelog
+#define QUICK_TAP_TERM 80
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
