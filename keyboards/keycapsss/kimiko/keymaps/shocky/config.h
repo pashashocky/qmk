@@ -6,8 +6,25 @@
 // default but used in macros
 #undef TAPPING_TERM
 #define TAPPING_TERM 140
+// #define TAPPING_TERM_PER_KEY // bottom of keymap.c - currently not implemented
 
+// https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#quick-tap-term
+// within this ms to trigger auto-repeat on e.g. homerow
 #define QUICK_TAP_TERM 80
+
+// Apply the modifier on keys that are tapped during a short hold of a modtap.
+// bottom of keymap.c
+#define PERMISSIVE_HOLD_PER_KEY
+
+// Ignore same-hand mods.
+#define BILATERAL_COMBINATIONS 150
+
+// Combo settings
+#define COMBO_TERM 30
+#define COMBO_TERM_PER_COMBO
+#define COMBO_MUST_TAP_PER_COMBO
+#define COMBO_VARIABLE_LEN
+#define COMBO_ONLY_FROM_LAYER 0
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
@@ -19,14 +36,14 @@
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
-#define MOUSEKEY_DELAY          0
 #undef MOUSEKEY_INTERVAL
-#define MOUSEKEY_INTERVAL       16
 #undef MOUSEKEY_WHEEL_DELAY
-#define MOUSEKEY_WHEEL_DELAY    0
 #undef MOUSEKEY_MAX_SPEED
-#define MOUSEKEY_MAX_SPEED      13
 #undef MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_DELAY          0
+#define MOUSEKEY_INTERVAL       16
+#define MOUSEKEY_WHEEL_DELAY    0
+#define MOUSEKEY_MAX_SPEED      13
 #define MOUSEKEY_TIME_TO_MAX    26
 
 
@@ -44,6 +61,7 @@
 // Shortcut layer creation
 #define XXX KC_NO
 #define ___ KC_TRNS // transparent
+
 #define LAYOUT_miryoku(\
      K00, K01, K02, K03, K04,                K05, K06, K07, K08, K09,\
      K10, K11, K12, K13, K14,                K15, K16, K17, K18, K19,\
