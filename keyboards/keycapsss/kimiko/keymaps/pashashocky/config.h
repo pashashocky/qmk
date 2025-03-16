@@ -21,8 +21,8 @@
 // #define OLED_FONT_WIDTH 5
 // #define OLED_FONT_HEIGHT 7
 
-// #define MASTER_LEFT
-#define MASTER_RIGHT
+#define MASTER_LEFT
+// #define MASTER_RIGHT
 
 // default but used in macros
 #undef TAPPING_TERM
@@ -54,7 +54,7 @@
 #undef MOUSEKEY_MAX_SPEED
 #define MOUSEKEY_MAX_SPEED      13
 #undef MOUSEKEY_TIME_TO_MAX
-#define MOUSEKEY_TIME_TO_MAX    32
+#define MOUSEKEY_TIME_TO_MAX    26
 
 
 #ifdef RGBLIGHT_ENABLE
