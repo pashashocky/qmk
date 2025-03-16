@@ -15,8 +15,8 @@ COMB(EI_RPRN,        KC_RPRN,   HOME_E,    HOME_I)
 COMB(HCOMM_LBRC,     KC_LBRC,   KC_H,      KC_COMM)
 COMB(COMMDOT_RBRC,   KC_RBRC,   KC_COMM,   KC_DOT)
 
-COMB(NE_LT,          KC_LABK,   KC_LSFT,   HOME_N,   HOME_E)
-COMB(EI_GT,          KC_RABK,   KC_LSFT,   HOME_E,   HOME_I)
+// COMB(NE_LT,          KC_LABK,   KC_LSFT,   HOME_N,   HOME_E)
+// COMB(EI_GT,          KC_RABK,   KC_LSFT,   HOME_E,   HOME_I)
 COMB(HCOMM_LCBR,     KC_LCBR,   KC_LSFT,   KC_H,     KC_COMM)
 COMB(COMMDOT_RCBR,   KC_RCBR,   KC_LSFT,   KC_COMM,  KC_DOT)
 
@@ -29,7 +29,8 @@ COMB(BG_PERC,  KC_PERC,   KC_B,    HOME_G)
 
 COMB(RX_GRV,   KC_GRV,    HOME_R,    KC_X)
 COMB(SC_BSLS,  KC_BSLS,   HOME_S,    KC_C)
-COMB(TD_TILD,  KC_TILD,   HOME_T,    KC_D)
+COMB(TD_EQL,   KC_EQL,    HOME_T,    KC_D)
+COMB(GV_TILD,  KC_TILD,   HOME_G,    KC_V)
 
 // right hand vertical combos
 COMB(JM_CIRC,  KC_CIRC,   KC_J,    HOME_M)

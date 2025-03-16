@@ -1,7 +1,7 @@
 #pragma once
 
-// #define MASTER_LEFT
-#define MASTER_RIGHT
+#define MASTER_LEFT
+// #define MASTER_RIGHT
 
 // default but used in macros
 #undef TAPPING_TERM
@@ -18,6 +18,11 @@
 
 // Ignore same-hand mods.
 #define BILATERAL_COMBINATIONS 150
+
+// number of taps to activate TT
+#define TAPPING_TOGGLE 1
+
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 // Combo settings
 #define COMBO_TERM 30
