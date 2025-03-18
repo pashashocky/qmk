@@ -12,6 +12,10 @@ uint16_t last_keycode;
 
 enum layers { BASE, NAV, FUN, NUM, MOUSE };
 
+enum keys {
+  ARROW = SAFE_RANGE
+};
+
 #define MAGIC LT(0, KC_NO)
 
 // momentary mouse
@@ -19,8 +23,8 @@ enum layers { BASE, NAV, FUN, NUM, MOUSE };
 
 // thumbs
 #define BSPC_NAV LT(NAV, KC_BSPC)
-#define ENT_NAV LT(NAV, KC_ENT)
-#define SPC_FUN LT(FUN, KC_SPC)
+#define ENT_FUN LT(FUN, KC_ENT)
+#define SPC_NAV LT(NAV, KC_SPC)
 
 // Left-hand home row mods
 #define HOME_A LCTL_T(KC_A)

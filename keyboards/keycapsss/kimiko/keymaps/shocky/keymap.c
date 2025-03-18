@@ -46,19 +46,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├──────────────────┼───────────────┼──────────────────┼──────────────────┼─────────────────┤ ├─────────────────┼────────────────┼─────────────────┼────────────────┼─────────────────┤
     KC_Z,              KC_X,           KC_C,              KC_D,              KC_V,               KC_K,             KC_H,            KC_COMM,          KC_DOT,          KC_QUES,
 //├──────────────────┼───────────────┼──────────────────┼──────────────────┼─────────────────┤ ├─────────────────┼────────────────┼─────────────────┼────────────────┼─────────────────┤
-    ___,               ___,            KC_TAB,            BSPC_NAV,          MAGIC,              ENT_NAV,          SPC_FUN,         MO(NUM),      ___,            ___
+    ___,               ___,            KC_TAB,            BSPC_NAV,          MAGIC,              ENT_FUN,          SPC_NAV,         MO(NUM),      ___,            ___
 //                                   ╰──────────────────┴──────────────────┴─────────────────╯ ╰─────────────────┴────────────────┴─────────────────╯
   ),
 
   [NAV] = LAYOUT_miryoku(
 //╭─────────────┬─────────────┬──────────────────┬──────────────────┬─────────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    KC_ESC,       ___,          KC_LCBR,           KC_RCBR,           KC_MINS,            ___,          KC_BSPC,      ___,          KC_DEL,       ___,
+    KC_ESC,       ARROW,        KC_LCBR,           KC_RCBR,           KC_PLUS,            ___,          KC_BSPC,      ___,          KC_DEL,       ___,
 //├─────────────┼─────────────┼──────────────────┼──────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    KC_LCTL,      KC_LALT,      LGUI_T(KC_LPRN),   LSFT_T(KC_RPRN),   KC_HYPR,            ___,          KC_LEFT,      KC_DOWN,      KC_UP,        KC_RGHT,
+    LCTL_T(KC_SLSH), LALT_T(KC_COLN), LGUI_T(KC_LPRN), LSFT_T(KC_RPRN), HYPR_T(KC_EQL),   ___,          KC_LEFT,      KC_DOWN,      KC_UP,        KC_RGHT,
 //├─────────────┼─────────────┼──────────────────┼──────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     KC_GRV,       KC_UNDS,      KC_LBRC,           KC_RBRC,           KC_TILD,            KC_INS,       KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,
 //├─────────────┼─────────────┼──────────────────┼──────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___,          ___,          ___,               ___,               ___,                BASE,        KC_TAB,       ___,          ___,          ___
+    ___,          ___,          ___,               ___,               KC_MINUS,           BASE,        KC_TAB,       ___,          ___,          ___
 //                            ╰──────────────────┴──────────────────┴─────────────────╯ ╰─────────────┴─────────────┴─────────────╯
   ),
 
@@ -171,6 +171,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
 
     // nav layer home row parenthesis
+    case ARROW:
+        if (record->event.pressed) {
+            SEND_STRING("->");
+            return false;
+        }
+        break;
     case LGUI_T(KC_LPRN):
       if (record->tap.count && record->event.pressed) {
         tap_code16(KC_LPRN); // send `(` on tap
@@ -180,6 +186,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LSFT_T(KC_RPRN):
       if (record->tap.count && record->event.pressed) {
         tap_code16(KC_RPRN); // send `)` on tap
+        return false;
+      }
+      break;
+    case LALT_T(KC_COLN):
+      if (record->tap.count && record->event.pressed) {
+        tap_code16(KC_COLN); // send `:` on tap
         return false;
       }
       break;
@@ -219,8 +231,8 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
-    case SPC_FUN:
-    case ENT_NAV:
+    case SPC_NAV:
+    case ENT_FUN:
     case MAGIC:
         return true;
     default:
@@ -230,8 +242,8 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
 
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
-    case SPC_FUN:
-    case ENT_NAV:
+    case SPC_NAV:
+    case ENT_FUN:
     case MAGIC:
         return true;
     default:
