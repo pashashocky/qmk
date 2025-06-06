@@ -1,7 +1,7 @@
 #pragma once
 
-#define MASTER_LEFT
-// #define MASTER_RIGHT
+// #define MASTER_LEFT
+#define MASTER_RIGHT
 
 // default but used in macros
 #undef TAPPING_TERM
